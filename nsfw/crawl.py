@@ -11,47 +11,21 @@ log = logging.getLogger(__name__)
 
 class HTTPProxy:
     def __init__(self):
-        self.proxies = PROXIES_LIST = [
-            'http://contentstudio:fuckoff321@66.70.255.196:55887',
-            'http://contentstudio:fuckoff321@142.44.249.192:55887',
-            'http://contentstudio:fuckoff321@142.44.249.193:55887',
-            'http://contentstudio:fuckoff321@142.44.249.194:55887',
-            'http://contentstudio:fuckoff321@142.44.249.195:55887',
-            'http://contentstudio:fuckoff321@142.44.249.196:55887',
-            'http://contentstudio:fuckoff321@142.44.249.197:55887',
-            'http://contentstudio:fuckoff321@142.44.249.198:55887',
-            'http://contentstudio:fuckoff321@142.44.249.199:55887',
-            'http://contentstudio:fuckoff321@142.44.249.200:55887',
-            'http://contentstudio:fuckoff321@142.44.249.201:55887',
-            'http://contentstudio:fuckoff321@142.44.249.202:55887',
-            'http://contentstudio:fuckoff321@142.44.249.203:55887',
-            'http://contentstudio:fuckoff321@142.44.249.204:55887',
-            'http://contentstudio:fuckoff321@142.44.249.205:55887',
-            'http://contentstudio:fuckoff321@142.44.249.206:55887',
-            'http://contentstudio:fuckoff321@142.44.249.207:55887',
-            'http://contentstudio:fuckoff321@142.44.249.208:55887',
-            'http://contentstudio:fuckoff321@142.44.249.209:55887',
-            'http://contentstudio:fuckoff321@142.44.249.210:55887',
-            'http://contentstudio:fuckoff321@142.44.249.211:55887',
-            'http://contentstudio:fuckoff321@142.44.249.212:55887',
-            'http://contentstudio:fuckoff321@142.44.249.213:55887',
-            'http://contentstudio:fuckoff321@142.44.249.214:55887',
-            'http://contentstudio:fuckoff321@142.44.249.215:55887',
-            'http://contentstudio:fuckoff321@142.44.249.216:55887',
-            'http://contentstudio:fuckoff321@142.44.249.217:55887',
-            'http://contentstudio:fuckoff321@142.44.249.218:55887',
-            'http://contentstudio:fuckoff321@142.44.249.219:55887',
-            'http://contentstudio:fuckoff321@142.44.249.220:55887',
-            'http://contentstudio:fuckoff321@142.44.249.221:55887',
-            'http://contentstudio:fuckoff321@142.44.249.222:55887',
-            'http://contentstudio:fuckoff321@142.44.249.223:55887',
-        ]
+        # add your proxies here if you want...
+        self.proxies = []
 
     def get(self, url):
-        return requests.get(url, proxies={
-            'http': random.choice(self.proxies),
-            'https': random.choice(self.proxies).replace('http', 'https')
-        })
+        """
+        A small wrapper on top of the Requests to enable the proxies option. Instead of passing
+        it explicitly everywhere, we will be using this.
+        """
+        if self.proxies:
+            return requests.get(url, timeout=60, proxies={
+                'http': random.choice(self.proxies),
+                'https': random.choice(self.proxies).replace('http', 'https')
+            })
+        else:
+            return requests.get(url, timeout=60)
 
 
 class Crawl(threading.Thread):
@@ -74,7 +48,7 @@ class Crawl(threading.Thread):
         return fromstring(resp)
 
     def parse(self, item):
-        """Parse the web page content."""
+        """Parse the web page content of xnxx."""
         try:
             resp = HTTPProxy().get(item)
             doc = self.doc(resp.content)
