@@ -8,7 +8,7 @@ from pybloom_live import BloomFilter
 
 log = logging.getLogger(__name__)
 
-bad_words = ['fucked', 'brunette', 'erotica', 'fucks', 'teens', 'interracial', 'creampie', 'blowjob', 'nuru massage',
+bad_words = ['fucked', 'brunette', 'erotica', 'fucks', 'interracial', 'creampie', 'blowjob', 'nuru massage',
              'latina', 'licking', 'sucking', 'redhead', 'ebony', 'cumshot', 'gangbang', 'slippery', 'squirting',
              'seduces', 'masturbating', 'passionate', 'penetration', 'homemade', 'housewife', 'fetish', 'dildos',
              'masturbation', 'painful', 'milfs', 'pounded', 'licked', 'blondie', 'fingered', 'virgin', 'pussies',
@@ -135,6 +135,11 @@ class ProfanityCheck:
     def score(cls, text):
         """Calculating the score based on the bad_words and bigram words"""
         text = text.lower()
+        text_words = text.split()
+
+        # bigrams
+
+        bigram = list(nltk.bigrams(text_words))
 
         # removing the bad words from the sentences to increase the accuracy.
 
@@ -146,11 +151,12 @@ class ProfanityCheck:
 
         scoring = 0
         for bad_word in bad_words:
-            if text.__contains__(bad_word):
+            if bad_word in text_words:
+                print(bad_word)
                 scoring += 1
 
         for bad_word in bigram_bad_words:
-            if text.__contains__(bad_word):
+            if bad_word in bigram:
                 scoring += 1
         return scoring / words_count * 100
 
