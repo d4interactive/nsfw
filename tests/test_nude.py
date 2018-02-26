@@ -56,9 +56,11 @@ class TestNudeChecker(unittest.TestCase):
         self.assertEqual(result, True)
 
     def test_non_adult(self):
+        total_score = 0
         for sentence in self.non_adult_sentences:
             score = ProfanityCheck.score(sentence)
-            print(score)
+            total_score += score
+        self.assertEqual(total_score, 0.0)
 
 class TestBOG(unittest.TestCase):
     """A test case for the BOG related work. The way we are generating the bag of words for the filters."""

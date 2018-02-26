@@ -152,7 +152,6 @@ class ProfanityCheck:
         scoring = 0
         for bad_word in bad_words:
             if bad_word in text_words:
-                print(bad_word)
                 scoring += 1
 
         for bad_word in bigram_bad_words:
