@@ -7,3 +7,4 @@
 nsfw.egg-info
 dist
 .eggs
+pip-selfcheck.json
