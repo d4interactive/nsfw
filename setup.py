@@ -7,7 +7,7 @@ ROOT = os.path.dirname(os.path.realpath(__file__))
 setup(
     # Meta data
     name='nsfw',
-    version='0.1.2',
+    version='0.1.3',
     author='Muhammad Azhar',
     author_email='azhar@contentstudio.io',
     maintainer='Muhammad Azhar',
