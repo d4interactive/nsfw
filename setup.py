@@ -7,13 +7,13 @@ ROOT = os.path.dirname(os.path.realpath(__file__))
 setup(
     # Meta data
     name='nsfw',
-    version='0.1.1',
+    version='0.1.2',
     author='Muhammad Azhar',
     author_email='azhar@contentstudio.io',
     maintainer='Muhammad Azhar',
     maintainer_email='azhar@contentstudio.io',
     url='https://contentstudio.io',
-    description='NSFW content anlayzer',
+    description='NSFW content analyzer',
     long_description=open(os.path.join(ROOT, 'README.md')).read(),
     license='MIT License',
     # Package files
