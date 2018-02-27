@@ -55,6 +55,9 @@ class TestNudeChecker(unittest.TestCase):
         result = ProfanityCheck.domain('cialiswork.com')
         self.assertEqual(result, True)
 
+        result = ProfanityCheck.domain('socialistworker.org')
+        self.assertEqual(result, False)
+
     def test_non_adult(self):
         total_score = 0
         for sentence in self.non_adult_sentences:
