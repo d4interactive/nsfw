@@ -4,7 +4,7 @@ import nltk
 
 from nltk.corpus import stopwords
 from collections import Counter
-from pybloom_live import ScalableBloomFilter
+from pybloom_live import BloomFilter
 
 log = logging.getLogger(__name__)
 
@@ -165,7 +165,7 @@ class ProfanityCheck:
         @:return True, if the domain has been found, else return false. If false, the domain can be
         added.
         """
-        bf = ScalableBloomFilter(10000000)
+        bf = BloomFilter(10000000)
         path = os.path.dirname(os.path.abspath(__file__))
         file = open(path + "/data/porn_sites_list.txt", "r+")
         files = file.readlines()
