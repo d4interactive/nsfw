@@ -1,13 +1,14 @@
 import os
 
 from setuptools import setup
+from nsfw import __version__
 
 ROOT = os.path.dirname(os.path.realpath(__file__))
 
 setup(
     # Meta data
     name='nsfw',
-    version='0.1.3',
+    version=__version__,
     author='Muhammad Azhar',
     author_email='azhar@contentstudio.io',
     maintainer='Muhammad Azhar',
