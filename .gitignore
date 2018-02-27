@@ -5,6 +5,7 @@
 *.orig
 *.egg-info/
 *.egg-info
+/build
 /bin
 /include
 /lib
