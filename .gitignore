@@ -1,10 +1,14 @@
+.eggs
+*.pyc
+*.swp
+*.swo
+*.orig
+*.egg-info/
+*.egg-info
 /bin
 /include
 /lib
 /share
 .idea
-.do.swp
-nsfw.egg-info
 dist
-.eggs
 pip-selfcheck.json
