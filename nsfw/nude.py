@@ -10,7 +10,7 @@ log = logging.getLogger(__name__)
 
 bad_words = ['fucked', 'brunette', 'erotica', 'fucks', 'interracial', 'creampie', 'blowjob', 'nuru massage',
              'latina', 'licking', 'sucking', 'redhead', 'ebony', 'cumshot', 'gangbang', 'slippery', 'squirting',
-             'seduces', 'masturbating', 'passionate', 'penetration', 'homemade', 'housewife', 'fetish', 'dildos',
+             'seduces', 'masturbating', 'passionate', 'housewife', 'fetish', 'dildos',
              'masturbation', 'painful', 'milfs', 'pounded', 'licked', 'blondie', 'fingered', 'virgin', 'pussies',
              'foursome', 'swingers', 'bitches', 'throat', 'sextape', 'pregnant', 'perverted', 'exotic', 'malkova',
              '2g1c', '2 girls 1 cup', 'acrotomophilia', 'anal', 'anilingus', 'anus', 'arsehole', 'ass', 'asshole',
